@@ -1,0 +1,6 @@
+**/.vs/*
+/asset/.mono/
+**/.import/*  
+**/.mono/*  
+Godot.exe
+GodotSharp/

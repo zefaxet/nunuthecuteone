@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Tools</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA37FAB6-889A-4F87-9CCD-EE4B91829654}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
+    <RootNamespace>nunu_the_cute_one</RootNamespace>
+    <AssemblyName>nunu_the_cute_one</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <GodotProjectGeneratorVersion>1.0.7374.16792</GodotProjectGeneratorVersion>
+    <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)</IntermediateOutputPath>
+    <ApiConfiguration Condition=" '$(Configuration)' != 'Release' ">Debug</ApiConfiguration>
+    <ApiConfiguration Condition=" '$(Configuration)' == 'Release' ">Release</ApiConfiguration>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tools|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(GodotDefineConstants);GODOT;DEBUG;TOOLS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Tools' ">
+      <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameStateController.cs" />
+    <Compile Include="Input\HumanPlayer.cs" />
+    <Compile Include="Input\IPlayer.cs" />
+    <Compile Include="Input\ArtificialPlayer.cs" />
+    <Compile Include="Input\ManagedPlayer.cs" />
+    <Compile Include="Overworld\OverworldEntity.cs" />
+    <Compile Include="Overworld\OverworldPlayerEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
